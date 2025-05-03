@@ -5,3 +5,5 @@
 `make`
 
 `doas make install` or `sudo make install`
+
+make sure you have xdo
