@@ -1,0 +1,39 @@
+.TH COTRAY 1 "May 2025" "cotray 1.0" "Window management utility for DWM"
+.SH NAME
+cotray \- manage and list DWM windows from the terminal
+
+.SH SYNOPSIS
+.B cotray
+.RI [ show | hide | restore ]
+.RI [ WINDOW_ID ]
+
+.SH DESCRIPTION
+.B cotray
+is a minimal X11 utility for listing visible windows in the current DWM workspace, and for hiding or restoring individual windows.
+
+.SH COMMANDS
+.TP
+.B (no args)
+Lists all currently visible windows on the current workspace. Each line includes the window ID and its title.
+
+.TP
+.B show WINDOW_ID
+Shows (maps) the window with the given hexadecimal window ID.
+
+.TP
+.B hide WINDOW_ID
+Hides (unmaps) the window with the given ID and saves it for restoration.
+
+.TP
+.B restore
+Restores the last hidden window (saved in /tmp/cotray_last_hidden).
+
+.SH FILES
+.TP
+.I /tmp/cotray_last_hidden
+Temporary file storing the last hidden window ID.
+
+.SH SEE ALSO
+.BR xprop (1),
+.BR wmctrl (1),
+.BR xwininfo (1)
