@@ -1,0 +1,67 @@
+.\" Manpage for cotray
+.TH COTRAY 1 "2025-05-15" "v2.0" "cotray manual"
+.SH NAME
+cotray \- simple X11 window hide/show utility
+
+.SH SYNOPSIS
+.B cotray
+[\fIcommand\fR] [\fIwindow_id\fR]
+
+.SH DESCRIPTION
+cotray is a minimal tool to list, hide, show, and restore windows using their X11 window IDs.
+It keeps a history of hidden windows in a temporary file to allow easy restoration.
+
+.SH COMMANDS
+.TP
+\fBcotray\fR
+Lists all currently visible top-level windows with their window IDs and titles.
+
+.TP
+\fBcotray hide <window_id>\fR
+Hides the specified window and adds it to the hidden windows history.
+
+.TP
+\fBcotray show <window_id>\fR
+Shows the specified window and removes it from the hidden windows history.
+
+.TP
+\fBcotray restore\fR
+Shows all windows currently hidden (tracked in history) and clears the history.
+
+.TP
+\fBcotray list\fR
+Lists all windows currently hidden (tracked in history) with their IDs and titles.
+
+.TP
+\fBcotray clear\fR
+Clears the hidden windows history without changing window visibility.
+
+.TP
+\fBcotray help\fR
+Displays this help message.
+
+.SH FILES
+.TP
+\fB/tmp/cotray_hidden_windows\fR
+File used to store hidden window IDs.
+
+.SH EXAMPLES
+.TP
+Hide a window:
+.sp
+  cotray hide 0x3600004
+.TP
+Show a window:
+.sp
+  cotray show 0x3600004
+.TP
+Restore all hidden windows:
+.sp
+  cotray restore
+.TP
+List hidden windows:
+.sp
+  cotray list
+
+.SH AUTHOR
+Coasteen
